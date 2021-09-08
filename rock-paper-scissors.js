@@ -1,4 +1,8 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
+    // returns a random answer for the computer
     let x = Math.random();
     if (x < 0.3333) {
         return 'rock';
@@ -9,40 +13,57 @@ function computerPlay() {
     }
 }
 
-const playerWin = () => console.log('You win this round!');
-const playerLose = () => console.log('You lose this round.');
+let playerSelection;
+let computerSelection;
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt('Selection: ').toLowerCase();
+    computerSelection = computerPlay();
+    console.log(`You: ${playerSelection} \nCPU: ${computerSelection} `)
     if (playerSelection == computerSelection) {
-        console.log('Tie!');
+        return 'Tie!';
     } else if (playerSelection == 'rock'){
         if (computerSelection == 'paper') {
-            playerLose();
+            computerScore++
+            return 'you lose; paper beats rock';
         } else {
-            playerWin();
+            playerScore++
+            return 'you win; rock beats scissors';
         }
     } else if (playerSelection == 'paper'){
         if (computerSelection == 'scissors') {
-            playerLose();
+            computerScore++
+            return 'you lose; scissors beats paper';
         } else {
-            playerWin();
+            playerScore++
+            return 'you win; paper beats rock';
         }
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
-            playerLose();
+            computerScore++
+            return 'you lose; rock beats scissors';
         } else {
-            playerWin();
+            playerScore++
+            return 'you win; scissors beats paper';
         }
     }
 
 }
 
-function game() {
-    for (i = 0; i < 5; i++) {
-        let playerSelection = prompt('Selection: ');
-        let computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
+function getWinner(playerScore, computerScore) {
+    if (computerScore > playerScore) {
+        return 'YOU LOSE!'
+    } else {
+        return 'YOU WIN!'
     }
+}
+
+function game() {
+    // plays 5 rounds 
+    for (i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\n\n` + getWinner(playerScore, computerScore));
 }
 
 game();
