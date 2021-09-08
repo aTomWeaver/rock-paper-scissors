@@ -51,7 +51,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function getWinner(playerScore, computerScore) {
-    if (computerScore > playerScore) {
+    if (computerScore == playerScore){
+        return 'TIE!'
+    } else if (computerScore > playerScore) {
         return 'YOU LOSE!'
     } else {
         return 'YOU WIN!'
@@ -67,4 +69,3 @@ function game() {
 }
 
 game();
-// console.log(playRound(playerSelection, computerSelection));
