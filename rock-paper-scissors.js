@@ -62,12 +62,12 @@ function getWinner(playerScore, computerScore) {
     }
 }
 
-function game() {
-    // plays 5 rounds 
-    for (i = 0; i < 5; i++) {
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
-}
+// function game() {
+//     // plays 5 rounds 
+//     for (i = 0; i < 5; i++) {
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+//     console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
+// }
 
 game();
