@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let tiedGame = 0;
 
 function computerPlay() {
     // returns a random answer for the computer
@@ -21,6 +22,7 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     console.log(`You: ${playerSelection} \nCPU: ${computerSelection} `)
     if (playerSelection == computerSelection) {
+        tiedGame++;
         return 'Tie!';
     } else if (playerSelection == 'rock'){
         if (computerSelection == 'paper') {
@@ -65,7 +67,7 @@ function game() {
     for (i = 0; i < 5; i++) {
         console.log(playRound(playerSelection, computerSelection));
     }
-    console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\n\n` + getWinner(playerScore, computerScore));
+    console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
 }
 
 game();
