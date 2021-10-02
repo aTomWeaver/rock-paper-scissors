@@ -5,15 +5,35 @@
     margin: 5px;
 }
 
-#player-buttons, #cpu-buttons {
+#spacer {
+    height: 20vh;
+}
+
+#title {
+    text-align: center;
+    color: whitesmoke;
+}
+
+#player-buttons-container, #cpu-buttons-container {
     background-color: tomato;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+#cpu-buttons-container > .button {
+    background-color: lightgray;
 }
 
 .button {
     background-color: white;
-    padding: 5px;
-    margin: 2px;
-    width: 10px;
+    padding: 0px;
+    margin: 10px;
+    height: 100px;
 }
+
+#footer {
+    height: 20vh;
+}
+
