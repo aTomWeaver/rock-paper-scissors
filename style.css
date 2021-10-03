@@ -45,9 +45,10 @@ h1 {
     align-items: center;
 }
 
-#cpu-buttons-container { 
-    background-color: #F08A4B;
-}
+    #cpu-buttons-container { 
+        background-color: #F08A4B;
+    }
+
 .button {
     padding: 0px;
     margin: 10px;

@@ -18,13 +18,9 @@ let playerSelection;
 let computerSelection;
 let selector = '';
 
-const playerRock = document.getElementById('player-rock');
-const playerPaper = document.getElementById('player-paper');
-const playerScissors = document.getElementById('player-scissors');
-
-// playerRock.addEventListener('click', () => selector = 'rock');
-// playerPaper.addEventListener('click', () => selector = 'paper');
-// playerScissors.addEventListener('click', () => selector = 'scissors');
+const playerScoreDisplay = document.getElementById('player-score-display');
+const cpuScoreDisplay = document.getElementById('cpu-score-display');
+const tieScoreDisplay = document.getElementById('tie-score-display');
 
 
 
@@ -33,33 +29,32 @@ function playRound(playerSelection, computerSelection) {
     console.log(`You: ${playerSelection} \nCPU: ${computerSelection} `)
     if (playerSelection == computerSelection) {
         tiedGame++;
-        return 'Tie!';
+        return tieScoreDisplay.innerText = `TIE: ${tiedGame}`;
     } else if (playerSelection == 'rock'){
         if (computerSelection == 'paper') {
-            computerScore++
-            return 'you lose; paper beats rock';
+            computerScore++;
+            return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
         } else {
-            playerScore++
-            return 'you win; rock beats scissors';
+            playerScore++;
+            return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
         }
     } else if (playerSelection == 'paper'){
         if (computerSelection == 'scissors') {
-            computerScore++
-            return 'you lose; scissors beats paper';
+            computerScore++;
+            return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
         } else {
-            playerScore++
-            return 'you win; paper beats rock';
+            playerScore++;
+            return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
         }
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
-            computerScore++
-            return 'you lose; rock beats scissors';
+            computerScore++;
+            return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
         } else {
-            playerScore++
-            return 'you win; scissors beats paper';
+            playerScore++;
+            return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
         }
     }
-
 }
 
 function getWinner(playerScore, computerScore) {
@@ -72,15 +67,26 @@ function getWinner(playerScore, computerScore) {
     }
 }
 
-function game() {
-    // plays 5 rounds 
-    for (i = 0; i < 5; i++) {
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
-}
+// function game() {
+//     // plays 5 rounds 
+//     for (i = 0; i < 5; i++) {
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+//     console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
+// }
 
-playerRock.addEventListener('click', playRound);
-playerPaper.addEventListener('click', () => selector = 'paper');
-playerScissors.addEventListener('click', () => selector = 'scissors');
+const playerRock = document.getElementById('player-rock');
+const playerPaper = document.getElementById('player-paper');
+const playerScissors = document.getElementById('player-scissors');
+
+playerRock.addEventListener('click', () => {
+    playRound('rock', computerSelection);
+});
+playerPaper.addEventListener('click', () => {
+    playRound('paper', computerSelection);
+});
+playerScissors.addEventListener('click', () => {
+    playRound('scissors', computerSelection);
+});
+
 
