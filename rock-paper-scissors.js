@@ -16,7 +16,7 @@ function computerPlay() {
 
 let playerSelection;
 let computerSelection;
-let selector = '';
+let round;
 
 const playerScoreDisplay = document.getElementById('player-score-display');
 const cpuScoreDisplay = document.getElementById('cpu-score-display');
@@ -38,63 +38,61 @@ function playRound(playerSelection, computerSelection) {
                     cpuScissors.classList.add('selected-tie');
             }
             tiedGame++;
-            return tieScoreDisplay.innerText = `TIE: ${tiedGame}`;
+            tieScoreDisplay.innerText = `TIE: ${tiedGame}`;
     } else if (playerSelection == 'rock'){
             if (computerSelection == 'paper') {
                     playerRock.classList.add('selected-lose');
                     cpuPaper.classList.add('selected-win')
                     computerScore++;
-                    return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
+                    cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
             } else {
                     playerRock.classList.add('selected-win');
                     cpuScissors.classList.add('selected-lose');
                     playerScore++;
-                    return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
+                    playerScoreDisplay.innerText = `YOU: ${playerScore}`;
             }
     } else if (playerSelection == 'paper'){
             if (computerSelection == 'scissors') {
                     playerPaper.classList.add('selected-lose');
                     cpuScissors.classList.add('selected-win');
                     computerScore++;
-                    return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
+                    cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
             } else {
                     playerPaper.classList.add('selected-win');
                     cpuRock.classList.add('selected-lose');
                     playerScore++;
-                    return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
+                    playerScoreDisplay.innerText = `YOU: ${playerScore}`;
             }
     } else if (playerSelection == 'scissors') {
             if (computerSelection == 'rock') {
                     playerScissors.classList.add('selected-lose');
                     cpuRock.classList.add('selected-win');
                     computerScore++;
-                    return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
+                    cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
             } else {
                     playerScissors.classList.add('selected-win');
                     cpuPaper.classList.add('selected-lose')
                     playerScore++;
-                    return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
+                    playerScoreDisplay.innerText = `YOU: ${playerScore}`;
             }
     }
-}
-
-function getWinner(playerScore, computerScore) {
-    if (computerScore == playerScore){
-        return 'TIE!'
-    } else if (computerScore > playerScore) {
-        return 'YOU LOSE!'
-    } else {
-        return 'YOU WIN!'
+    round = playerScore + computerScore + tiedGame;
+    console.log('Round: ' + round);
+    if (round == 10) {
+        getWinner();
     }
 }
 
-// function game() {
-//     // plays 5 rounds 
-//     for (i = 0; i < 5; i++) {
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-//     console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
-// }
+function getWinner() {
+    if (playerScore > computerScore) {
+        alert(`You Win!\n\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
+    } else if (computerScore > playerScore) {
+        alert(`You Lose!\n\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
+    } else {
+        alert(`Tie!\n\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
+    }
+    location.reload();
+}
 
 const playerRock = document.getElementById('player-rock');
 const playerPaper = document.getElementById('player-paper');
@@ -105,8 +103,7 @@ const cpuScissors = document.getElementById('cpu-scissors');
 
 const buttons = document.querySelectorAll('.button');
 
-function removeTransition(e) {
-    if (e.propertyName !== 'transform') console.log('didnt work');
+function removeTransition() {
     this.classList.remove('selected-tie');
     this.classList.remove('selected-win');
     this.classList.remove('selected-lose');
