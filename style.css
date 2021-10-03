@@ -1,39 +1,65 @@
-.container {
-    background-color: grey;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 5px;
+body {
+    margin: 0;
 }
 
-#spacer {
-    height: 20vh;
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #577590;
+    /* border: 1px solid black; */
+    padding: 10px;
+    margin: 0px;
 }
 
 #title {
     text-align: center;
-    color: whitesmoke;
+    /* color: #577590; */
+    background-color: #F3CA40;
+}
+
+h1 {
+    font-weight: 500;
+}
+
+.player-name {
+    background-color: #F2A541;
+    text-align: center;
+    font-weight: 700;
+}
+
+.cpu-name {
+    background-color: #F08A4B;
+    text-align: center;
+    font-weight: 700;
 }
 
 #player-buttons-container, #cpu-buttons-container {
-    background-color: tomato;
+    background-color: #F2A541;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15vh;
 }
 
-#cpu-buttons-container > .button {
-    background-color: lightgray;
+#cpu-buttons-container { 
+    background-color: #F08A4B;
 }
-
 .button {
-    background-color: white;
+    background-color: inherit;
     padding: 0px;
     margin: 10px;
     height: 100px;
 }
 
 #footer {
+    position: absolute;
     height: 20vh;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #577590;
 }
 

@@ -16,9 +16,19 @@ function computerPlay() {
 
 let playerSelection;
 let computerSelection;
+let selector = '';
+
+const playerRock = document.getElementById('player-rock');
+const playerPaper = document.getElementById('player-paper');
+const playerScissors = document.getElementById('player-scissors');
+
+// playerRock.addEventListener('click', () => selector = 'rock');
+// playerPaper.addEventListener('click', () => selector = 'paper');
+// playerScissors.addEventListener('click', () => selector = 'scissors');
+
+
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt('Selection: ').toLowerCase();
     computerSelection = computerPlay();
     console.log(`You: ${playerSelection} \nCPU: ${computerSelection} `)
     if (playerSelection == computerSelection) {
@@ -62,12 +72,15 @@ function getWinner(playerScore, computerScore) {
     }
 }
 
-// function game() {
-//     // plays 5 rounds 
-//     for (i = 0; i < 5; i++) {
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-//     console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
-// }
+function game() {
+    // plays 5 rounds 
+    for (i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    console.log(`***FINAL SCORE***\nYou: ${playerScore}\nComputer: ${computerScore}\nTies: ${tiedGame}\n\n` + getWinner(playerScore, computerScore));
+}
 
-game();
+playerRock.addEventListener('click', playRound);
+playerPaper.addEventListener('click', () => selector = 'paper');
+playerScissors.addEventListener('click', () => selector = 'scissors');
+

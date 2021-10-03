@@ -10,22 +10,25 @@
 </head>
 <body>
     <div class="flex-container">
-        <div class="container" id="spacer"></div>   
-        <div class="container" id="title">Rock • Paper • Scissors</div>
+        <div class="container" style="height: 20vh"></div>   
+        <div class="container" id="title"><h1>Rock • Paper • Scissors</h1></div>
+        <div class="player-name">YOU</div>
         <div class="container" id="player-buttons-container">
-            <div class="button"><img src="icons/icons8-hand-rock-100.png" height="100px"></div>
-            <div class="button"><img src="icons/icons8-hand-100.png" height="100px"></div>
-            <div class="button"><img src="icons/icons8-hand-scissors-100.png" height="100px;"></div>
+            <div class="button" id="player-rock"><img src="icons/icons8-hand-rock-100.png" height="100px"></div>
+            <div class="button" id="player-paper"><img src="icons/icons8-hand-100.png" height="100px"></div>
+            <div class="button" id="player-scissors"><img src="icons/icons8-hand-scissors-100.png" height="100px;"></div>
         </div>
+        <div class="cpu-name">CPU</div>
         <div class="container" id="cpu-buttons-container">
             <div class="button"><img src="icons/icons8-hand-rock-100.png" height="100px"></div>
             <div class="button"><img src="icons/icons8-hand-100.png" height="100px"></div>
             <div class="button"><img src="icons/icons8-hand-scissors-100.png" height="100px;"></div>
         </div>
+        <div class="container" style="background-color: #577590; height: 20vh"></div>
         <div class="container" id="footer">
-            <div class="scores"></div>
-            <div class="scores"></div>
-            <div class="scores"></div>
+            <div class="scores">YOU: </div>
+            <div class="scores">CPU: </div>
+            <div class="scores">TIE: </div>
         </div>
     </div>
 </body>
