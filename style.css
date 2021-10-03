@@ -50,6 +50,7 @@ h1 {
     }
 
 .button {
+    border: 3px solid transparent;
     padding: 0px;
     margin: 10px;
 }
@@ -66,3 +67,12 @@ h1 {
     font-size: 1.2em;
 }
 
+.selected-tie {
+    border-color:blue;
+}
+.selected-win {
+    border-color: green;
+}
+.selected-lose {
+    border-color: red;
+}

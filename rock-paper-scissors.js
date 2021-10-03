@@ -23,7 +23,6 @@ const cpuScoreDisplay = document.getElementById('cpu-score-display');
 const tieScoreDisplay = document.getElementById('tie-score-display');
 
 
-
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     console.log(`You: ${playerSelection} \nCPU: ${computerSelection} `)
@@ -32,25 +31,31 @@ function playRound(playerSelection, computerSelection) {
         return tieScoreDisplay.innerText = `TIE: ${tiedGame}`;
     } else if (playerSelection == 'rock'){
         if (computerSelection == 'paper') {
+            playerRock.classList.add('selected-lose');
             computerScore++;
             return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
         } else {
+            playerRock.classList.add('selected-win');
             playerScore++;
             return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
         }
     } else if (playerSelection == 'paper'){
         if (computerSelection == 'scissors') {
+            playerPaper.classList.add('selected-lose');
             computerScore++;
             return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
         } else {
+            playerPaper.classList.add('selected-win');
             playerScore++;
             return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
         }
     } else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
+            playerScissors.classList.add('selected-lose');
             computerScore++;
             return cpuScoreDisplay.innerText = `CPU: ${computerScore}`;
         } else {
+            playerScissors.classList.add('selected-win');
             playerScore++;
             return playerScoreDisplay.innerText = `YOU: ${playerScore}`;
         }
