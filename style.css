@@ -65,14 +65,23 @@ h1 {
 .scores {
     margin: 25px;
     font-size: 1.2em;
+    font-weight: 600;
+    color: white;
 }
 
-.selected-tie {
-    border-color:blue;
-}
-.selected-win {
-    border-color: green;
-}
-.selected-lose {
-    border-color: red;
-}
+/* selected boxes */
+    .selected-tie {
+        transition: all .25s ease-in-out;
+        transform: scale(1.25);
+        border-color:yellow;
+    }
+    .selected-win {
+        transition: all .5s ease-in-out;
+        transform: scale(1.25);
+        border-color: green;
+    }
+    .selected-lose {
+        transition: all .5s ease-in-out;
+        /* transform: scale(1.25); */
+        border-color: red;
+    }
